@@ -1,1 +1,3 @@
-# Gapsurey
+# Trạng thái
+
+Đang dịch...
