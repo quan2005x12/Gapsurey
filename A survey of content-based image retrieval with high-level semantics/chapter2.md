@@ -60,26 +60,37 @@ Mô tả dựa trên hình dạng đường viền được dẫn xuất từ kh
 
 ### 2.3. Đo lường dộ tương đồng
 Trong các hệ thống RBIR, độ tương đồng ảnh được đo ở hai cấp độ. Thứ nhất là cấp độ vùng. Tức là đo khoảng cách giữa hai vùng dựa trên các đặc trưng cấp thấp của chúng. Thứ hai là cấp độ ảnh. Tức là đo độ tương đồng tổng thể của hai ảnh có thể chứa số lượng vùng khác nhau. Hầu hết các nhà nghiên cứu sử dụng hệ mét kiểu Minkowski để định nghĩa khoảng cách vùng. Giả sử chúng ta có hai vùng được biểu diễn bởi hai vector p chiều (x1, x2, . . . , xp), (y1, y2, . . . , yp) tương ứng. Hệ mét Minkowski được định nghĩa là
-$$
-d(X, Y) = \left( \sum_{i=1}^{p} |x_i - y_i|^r \right)^{\tfrac{1}{r}}
-$$
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?d(X,Y)=\left(\sum_{i=1}^{p}|x_i-y_i|^r\right)^{\tfrac{1}{r}}" alt="formula"/>
+</p>
+
 
 Đặc biệt, khi r = 2, nó là khoảng cách Euclidean nổi tiếng (khoảng cách L2). Khi r = 1, nó là khoảng cách Manhattan (khoảng cách L1). Y. Liu et al. / Pattern Recognition 40 (2007) 262–282 267 Một phiên bản biến thể thường được sử dụng là hàm khoảng cách Minkowski có trọng số, giới thiệu trọng số để xác định các đặc trưng quan trọng
-$$
-d(X, Y) = \left( \sum_{i=1}^{p} w_i |x_i - y_i|^r \right)^{\tfrac{1}{r}}
-$$
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?d(X,Y)=\left(\sum_{i=1}^{p}w_i|x_i-y_i|^r\right)^{\tfrac{1}{r}}" alt="formula"/>
+</p>
+
 trong đó wi , i = 1, . . . , p là trọng số áp dụng cho các đặc trưng khác nhau. Các khoảng cách khác cũng được sử dụng trong truy xuất ảnh, chẳng hạn như khoảng cách Canberra, khoảng cách góc, hệ số Czekanowski, tích vô hướng, hệ số Dice, hệ số Cosine và hệ số Jaccard.
 Độ tương đồng tổng thể của hai ảnh khó đo hơn. Về cơ bản, có hai cách. (1) So khớp một-một (One-One match): Điều này có nghĩa là mỗi vùng trong ảnh truy vấn chỉ được phép khớp với một vùng trong ảnh đích và ngược lại. Như trong tài liệu, mỗi vùng truy vấn của ảnh truy vấn được liên kết với một vùng "khớp tốt nhất" duy nhất trong ảnh đích. Sau đó, độ tương đồng tổng thể được định nghĩa là tổng trọng số của độ tương đồng giữa mỗi vùng truy vấn trong ảnh truy vấn và vùng "khớp tốt nhất" của nó trong ảnh đích, trong khi trọng số liên quan đến kích thước vùng.
 (2) So khớp nhiều-nhiều (Many-Many match): Điều này có nghĩa là mỗi vùng trong ảnh truy vấn được phép khớp với nhiều hơn một vùng trong ảnh đích và ngược lại. Một phương pháp được sử dụng rộng rãi là Khoảng cách Di chuyển Trái đất (Earth Mover's Distance - EMD). EMD là một metric tổng quát và linh hoạt. Nó đo chi phí tối thiểu cần thiết để biến đổi một phân bố thành một phân bố khác dựa trên một bài toán vận tải truyền thống từ tối ưu hóa tuyến tính, mà đối với nó có sẵn các thuật toán hiệu quả. EMD khớp tốt với độ tương đồng cảm nhận và có thể được áp dụng cho các biểu diễn phân bố có độ dài biến đổi, do đó nó phù hợp để đo độ tương đồng hình ảnh trong hệ thống RBIR.
 Li et al. đề xuất một sơ đồ so khớp vùng tích hợp (IRM) cho phép so khớp một vùng của ảnh này với nhiều vùng của ảnh khác, từ đó giảm tác động của việc phân đoạn không chính xác. Trong định nghĩa này, một sự so khớp giữa bất kỳ hai vùng nào được gán một mức tín nhiệm ý nghĩa. Điều này hình thành một ma trận ý nghĩa giữa hai tập hợp vùng (một tập hợp thuộc ảnh truy vấn, một tập hợp thuộc ảnh đích). Độ tương đồng tổng thể của hai ảnh được định nghĩa dựa trên ma trận ý nghĩa theo cách tương tự EMD.
-Mặc dù metric Minkowski được sử dụng rộng rãi trong các hệ thống hiện tại để đo khoảng cách vùng, các thử nghiệm chuyên sâu cho thấy nó không hiệu quả lắm trong việc mô hình hóa độ tương đồng cảm nhận. Việc đo lường độ tương đồng cảm nhận vẫn là một câu hỏi chưa được giải đáp phần lớn. Đã có một số công trình được thực hiện để giải quyết vấn đề này. Ví dụ, trong tài liệu, một hàm khoảng cách cục bộ động (DPF) được định nghĩa, giúp giảm chiều của các vector đặc trưng bằng cách chọn động một lượng nhỏ hơn các chiều. Đặt\[
-\delta_i = |x_i - y_i|, \quad i = 1, \ldots, p,\]các tác giả định nghĩa\[
-\Delta_m = \{ \text{m smallest } \delta \text{'s of } (\delta_1, \ldots, \delta_p) \}.
-\]
-Sau đó, DPF được định nghĩa là
-$$
-d(m, r) = \left( \sum_{\delta_i \in \Delta_m} \delta_i^r \right)^{\frac{1}{r}} .
-$$
+Mặc dù metric Minkowski được sử dụng rộng rãi trong các hệ thống hiện tại để đo khoảng cách vùng, các thử nghiệm chuyên sâu cho thấy nó không hiệu quả lắm trong việc mô hình hóa độ tương đồng cảm nhận. Việc đo lường độ tương đồng cảm nhận vẫn là một câu hỏi chưa được giải đáp phần lớn. Đã có một số công trình được thực hiện để giải quyết vấn đề này. Ví dụ, trong tài liệu, một hàm khoảng cách cục bộ động (DPF) được định nghĩa, giúp giảm chiều của các vector đặc trưng bằng cách chọn động một lượng nhỏ hơn các chiều.Đặt  
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?\delta_i=|x_i-y_i|,\quad i=1,\ldots,p" alt="formula"/>
+</p>
+
+các tác giả định nghĩa  
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?\Delta_m=\{\text{m smallest }\delta\text{'s of }(\delta_1,\ldots,\delta_p)\}" alt="formula"/>
+</p>
+
+Sau đó, DPF được định nghĩa là  
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?d(m,r)=\left(\sum_{\delta_i\in\Delta_m}\delta_i^r\right)^{\tfrac{1}{r}}" alt="formula"/>
+</p>
+``
+
 Có hai tham số cần điều chỉnh là m và r. Kết quả thử nghiệm ban đầu cho thấy DPF có thể cung cấp kết quả truy xuất chính xác hơn so với các metric Minkowski. Tuy nhiên, giá trị của m phụ thuộc vào dữ liệu, điều này làm cho thuật toán kém linh hoạt. Ngoài ra, để được sử dụng rộng rãi trong các hệ thống truy xuất ảnh, cần nghiên cứu thêm để xác nhận hiệu suất của nó trong các ứng dụng khác nhau. Trong tài liệu, một khoảng cách cảm nhận để đo độ tương đồng hình dạng được trình bày. Mỗi hình dạng được đặc trưng bởi một tập hợp các token. Một khoảng cách metric giữa các token được định nghĩa trước, sau đó một khoảng cách phi metric được định nghĩa là tập hợp khoảng cách token để đo độ tương đồng hình dạng. Phương pháp này có thể được mở rộng sang RBIR bằng cách coi các vùng ảnh như các token.
 Vasconcelos và Lippman đã đề xuất một khoảng cách đa độ phân giải trên manifold (MRMD) cho nhận dạng khuôn mặt. Trong MRMD, hai hình ảnh cần được so khớp được coi là các manifold, và khoảng cách giữa hai hình ảnh là khoảng cách tối thiểu hóa lỗi biến đổi một manifold thành manifold kia. Để giảm tính toán, các hình ảnh được đưa vào phân tích đa độ phân giải. Biện pháp khoảng cách này phù hợp cho các ứng dụng căn chỉnh hình ảnh như nhận dạng khuôn mặt và phát hiện cảnh video. Trong tài liệu, đo lường độ tương đồng giữa các loại đặc trưng hình ảnh khác nhau được coi là một quá trình ra quyết định đa cấp. Các hình ảnh trong cơ sở dữ liệu được biểu diễn bằng một số mô tả màu sắc và kết cấu MPEG-7, các mô tả này được đưa vào một khuôn khổ hợp nhất quyết định phân cấp bằng logic mờ. Ưu điểm của phép đo độ tương đồng này là các loại đặc trưng hình ảnh khác nhau có thể được kết hợp thành một đặc trưng tích hợp. Trong công trình sau này của họ, các tác giả đã mở rộng khuôn khổ hợp nhất quyết định thành một khuôn khổ học tập có giám sát với phản hồi liên quan (RF) từ người dùng.
 
