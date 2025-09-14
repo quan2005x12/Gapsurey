@@ -21,12 +21,6 @@ Tìm kiếm ở Cấp độ 3 khó và ít phổ biến hơn. Tìm kiếm Cấp 
 
 Các khảo sát xuất sắc về trích xuất đặc trưng hình ảnh cấp thấp trong hệ thống CBIR có thể tìm thấy trong tài liệu. Trong bài báo này, chúng tôi tập trung vào CBIR với ngữ nghĩa cấp cao. Phần còn lại của bài báo được tổ chức như sau. Trong Phần 2, chúng tôi xem xét ngắn gọn các đặc trưng hình ảnh cấp thấp khác nhau được sử dụng trong các hệ thống CBIR dựa trên ngữ nghĩa cấp cao. Đo lường độ tương đồng hình ảnh cũng được thảo luận trong Phần 2. Phần 3 tập trung vào các phương pháp khác nhau trong việc thu hẹp ‘khoảng cách ngữ nghĩa’. Trong Phần 4, tập dữ liệu kiểm tra hình ảnh và đánh giá hiệu suất (PE) được thảo luận. Phần 5 bao gồm một vài vấn đề khác liên quan đến hệ thống CBIR được đề xuất là các hướng nghiên cứu đầy hứa hẹn. Cuối cùng, Phần 6 kết luận bài báo này.
 
-## 2. Đặc trưng hình ảnh cấp thấp
-Trích xuất đặc trưng hình ảnh cấp thấp là nền tảng của hệ thống CBIR. Để thực hiện CBIR, các đặc trưng hình ảnh có thể được trích xuất từ toàn bộ hình ảnh hoặc từ các vùng. Vì đã phát hiện ra rằng người dùng thường quan tâm đến các vùng cụ thể hơn là toàn bộ hình ảnh, hầu hết các hệ thống CBIR hiện tại đều dựa trên vùng. Tìm kiếm dựa trên đặc trưng toàn cục tương đối đơn giản hơn. Biểu diễn hình ảnh ở cấp độ vùng được chứng minh là gần hơn với hệ thống nhận thức của con người. Trong bài báo này, chúng tôi tập trung vào tìm kiếm hình ảnh dựa trên vùng (RBIR).
 
-Để thực hiện RBIR, bước đầu tiên là thực hiện phân đoạn hình ảnh. Sau đó, các đặc trưng cấp thấp như màu sắc, kết cấu, hình dạng hoặc vị trí không gian có thể được trích xuất từ các vùng đã được phân đoạn. Độ tương đồng giữa hai hình ảnh được định nghĩa dựa trên các đặc trưng vùng. Phần này bao gồm mô tả ngắn gọn về ba phần này, tập trung vào những gì được sử dụng trong hệ thống RBIR với ngữ nghĩa cấp cao.
 
-### 2.1. Phân đoạn hình ảnh
- Phân đoạn hình ảnh tự động là một nhiệm vụ khó khăn. Nhiều kỹ thuật đã được đề xuất trong quá khứ, chẳng hạn như tiến hóa đường cong, khuếch tán năng lượng và phân vùng đồ thị. Nhiều kỹ thuật phân đoạn hiện có hoạt động tốt cho
 
- ![Kết quả phân đoạn JSEG](figures\fig1.png)
