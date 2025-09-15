@@ -8,7 +8,7 @@
 *Phân đoạn hình ảnh* tự động là một nhiệm vụ khó khăn. Nhiều kỹ thuật đã được đề xuất trong quá khứ, chẳng hạn như tiến hóa đường cong, khuếch tán năng lượng và phân vùng đồ thị. Nhiều kỹ thuật phân đoạn hiện có hoạt động tốt cho
 
  
- <p align="center">
+<p align="center">
   <img src="/figures/fig1.png" alt="Kết quả phân đoạn JSEG" width="500"/>
   <br>
   <em>Ảnh thứ 2: 14 vùng ảnh, Ảnh thứ 4: 11 vùng ảnh</em>
